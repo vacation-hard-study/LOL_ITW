@@ -45,7 +45,7 @@ h1 {
     float: right;
 }
 
-.worldcup_sample img {
+.worldcup_sample div {
     width: 100%;
     height: 180px;
     background-size: cover;
