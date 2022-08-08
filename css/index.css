@@ -52,3 +52,7 @@ header ul > li > a {
     text-decoration: none;
     padding: 0 20px;
 }
+
+header ul > li > a:hover {
+    color: #448AFF
+}
