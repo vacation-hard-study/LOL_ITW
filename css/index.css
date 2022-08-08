@@ -21,6 +21,7 @@ h1 {
     height: 100%;
     border: 1px solid red;
     margin-right: 10px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -65,4 +66,15 @@ h1 {
 .worldcup_info h4, h5 {
     text-align: center;
     margin: 0;
+}
+
+.buttons > a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: red;
+    padding: 3px;
+    text-decoration: none;
+    color: white;
+    border: red 1px solid;
+    border-radius: 3px;
 }
