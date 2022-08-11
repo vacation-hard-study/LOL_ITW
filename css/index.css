@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    background-color: #f5f5f5;
+    background-color: #f3f3f4;
 }
 
 h1 {
@@ -13,26 +13,34 @@ h1 {
 .worldcup_container {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
-}
-
-
-.worldcup_container :hover {
-    box-shadow: 0px 0px 20px #000;
+    padding: 5px;
+    /*border: 1px solid black;*/
 }
 
 .worldcup_box {
-    width: 350px;
+    width: 300px;
     height: 100%;
-    border: 1px solid red;
-    margin: 10px;
+    margin: 10px 0px 10px 10px;
     display: flex;
     flex-direction: column;
+    transition: box-shadow .3s;
+    border-radius:10px;
+    border: 1px solid #e7eaec;
+    overflow: hidden;
+    background-color: #fff;
 }
 
+.worldcup_box:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
 
 .worldcup_content {
     height: 200px;
+}
+
+.worldcup_content h4 {
+    font-size: 12px;
+    color:  #676a6c
 }
 
 .worldcup_sample {
@@ -66,30 +74,69 @@ h1 {
 
 .worldcup_info {
     text-align: left;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 0 10px;
 }
 
-.worldcup_info > a {
+.worldcup_info a {
     text-decoration: none;
+    color: #000000;
 }
 
-.worldcup_info > a:hover {
-    color: skyblue;
+.worldcup_info h3 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+}
+
+.worldcup_info h5 {
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 10px;
+    color: #676a6c;
 }
 
 .buttons {
     text-align: center;
-    margin-bottom: 15px;
+    margin: 10px 0 15px 0;
 }
 
-.buttons > a {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color: red;
-    padding: 3px;
+.buttons a {
+    margin: 5px 5px;
+    padding: 5px;
     text-decoration: none;
-    color: white;
-    border: red 1px solid;
-    border-radius: 3px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.buttons a.btn-red {
+    color: #F44336;
+    border: 1px solid #F44336;
+}
+
+.buttons a.btn-red:hover {
+    background-color: #F44336;
+    color: #fff;
+}
+
+.buttons a.btn-yellow {
+    color: #FFC107;
+    border: 1px solid #FFC107;
+}
+
+.buttons a.btn-yellow:hover {
+    background-color: #FFC107;
+    color: #fff;
+}
+
+.buttons a.btn-blue {
+    color: #03A9F4;
+    border: 1px solid #03A9F4;
+}
+
+.buttons a.btn-blue:hover {
+    background-color: #03A9F4;
+    color: #fff;
+}
+
+.buttons i {
+    margin-right: 3px;
 }
