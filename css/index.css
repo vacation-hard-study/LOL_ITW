@@ -16,15 +16,20 @@ h1 {
     border: 1px solid black;
 }
 
+
+.worldcup_container :hover {
+    box-shadow: 0px 0px 20px #000;
+}
+
 .worldcup_box {
-    width: 300px;
+    width: 350px;
     height: 100%;
     border: 1px solid red;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
 }
+
 
 .worldcup_content {
     height: 200px;
@@ -60,12 +65,22 @@ h1 {
 }
 
 .worldcup_info {
-    margin-top: 16px;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.worldcup_info h4, h5 {
+.worldcup_info > a {
+    text-decoration: none;
+}
+
+.worldcup_info > a:hover {
+    color: skyblue;
+}
+
+.buttons {
     text-align: center;
-    margin: 0;
+    margin-bottom: 15px;
 }
 
 .buttons > a {
