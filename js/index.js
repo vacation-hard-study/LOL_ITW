@@ -38,11 +38,11 @@ function addNewWorldcup(left_link, left_name, right_link, right_name, title, des
     $(".worldcup_container").append(worldcup_box_object);
 }
 
-const result = fetch("../json/worldcup_jsons.json")
+const result = fetch("./json/worldcup_jsons.json")
     .then(response => response.json())
     .then(function (files) {
         for (let i = 0; i < files.length; i++) {
-            fetch("../json/" + files[i])
+            fetch("./json/" + files[i])
                 .then(response => response.json())
                 .then(function (json) {
                     const title = json.title;
@@ -69,7 +69,7 @@ const result = fetch("../json/worldcup_jsons.json")
 
 const dynamic_generation_demo = $("h3.dynamic_generation");
 dynamic_generation_demo.click(() => {
-    fetch("../json/champion.json")
+    fetch("./json/champion.json")
     .then(response => response.json())
     .then(function (json) {
         const title = json.title;
