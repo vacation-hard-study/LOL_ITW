@@ -1,12 +1,10 @@
-// using jquery
-
-function addNewWorldcup(left_link, left_name, right_link, right_name, title, summary) {
-    console.log("[addNewWorldcup]");
+function addNewWorldcup(left_link, left_name, right_link, right_name, title, description) {
+    console.log("================ " + title + " ================");
     console.log(left_name + ": " + left_link);
     console.log(right_name + ": " + right_link);
     console.log("제목: " + title);
-    console.log("설명: " + summary);
-    console.log("=====================================");
+    console.log("설명: " + description);
+    console.log("==================================================");
 
     const worldcup_box = '' +
         '        <div class="worldcup_box">\n' +
@@ -26,7 +24,7 @@ function addNewWorldcup(left_link, left_name, right_link, right_name, title, sum
         '                    <h3>' + title + '</h3>\n' +
         '                </a>\n' +
         '\n' +
-        '                <h5>' + summary + '</h5>\n' +
+        '                <h5>' + description + '</h5>\n' +
         '            </div>\n' +
         '' +
         '            <div class="buttons">\n' +
@@ -35,12 +33,59 @@ function addNewWorldcup(left_link, left_name, right_link, right_name, title, sum
         '                <a href="next_url" class="btn-blue"><i class="fa-solid fa-share"></i>공유하기</a>\n' +
         '            </div>\n' +
         '        </div>\n';
-
-    console.log(worldcup_box);
-
     let worldcup_box_object = $(worldcup_box);
 
     $(".worldcup_container").append(worldcup_box_object);
 }
 
-addNewWorldcup('img/champion/ash.png', '애쉬1', 'img/champion/ash.png', '애쉬2', '롤 챔피언 월드컵', '당신이 가장 좋아하는 롤 챔피언을 찾아보세요!');
+const result = fetch("../json/worldcup_jsons.json")
+    .then(response => response.json())
+    .then(function (files) {
+        for (let i = 0; i < files.length; i++) {
+            fetch("../json/" + files[i])
+                .then(response => response.json())
+                .then(function (json) {
+                    const title = json.title;
+                    const description = json.description;
+
+                    // 0 ~ (max - 2) random
+                    const left_index = Math.floor(Math.random() * (json.list.length - 1));
+                    // (leftindex + 1) ~ (max - 1) random
+                    const right_index = Math.floor((Math.random() * (json.list.length - left_index - 2)) + left_index + 1);
+
+                    const left_name = json.list[left_index][0];
+                    const left_link = json.list[left_index][1];
+
+                    const right_name = json.list[right_index][0];
+                    const right_link = json.list[right_index][1];
+
+                    addNewWorldcup(left_link, left_name, right_link, right_name, title, description);
+                });
+        }
+    });
+
+
+
+
+const dynamic_generation_demo = $("h3.dynamic_generation");
+dynamic_generation_demo.click(() => {
+    fetch("../json/champion.json")
+    .then(response => response.json())
+    .then(function (json) {
+        const title = json.title;
+        const description = json.description;
+    
+        // 0 ~ (max - 2) random
+        const left_index = Math.floor(Math.random() * (json.list.length - 1));
+        // (leftindex + 1) ~ (max - 1) random
+        const right_index = Math.floor((Math.random() * (json.list.length - left_index - 2)) + left_index + 1);
+    
+        const left_name = json.list[left_index][0];
+        const left_link = json.list[left_index][1];
+    
+        const right_name = json.list[right_index][0];
+        const right_link = json.list[right_index][1];
+    
+        addNewWorldcup(left_link, left_name, right_link, right_name, title, description);
+    });
+});
