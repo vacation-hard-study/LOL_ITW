@@ -63,3 +63,29 @@ const result = fetch("../json/worldcup_jsons.json")
                 });
         }
     });
+
+
+
+
+const dynamic_generation_demo = $("h3.dynamic_generation");
+dynamic_generation_demo.click(() => {
+    fetch("../json/champion.json")
+    .then(response => response.json())
+    .then(function (json) {
+        const title = json.title;
+        const description = json.description;
+    
+        // 0 ~ (max - 2) random
+        const left_index = Math.floor(Math.random() * (json.list.length - 1));
+        // (leftindex + 1) ~ (max - 1) random
+        const right_index = Math.floor((Math.random() * (json.list.length - left_index - 2)) + left_index + 1);
+    
+        const left_name = json.list[left_index][0];
+        const left_link = json.list[left_index][1];
+    
+        const right_name = json.list[right_index][0];
+        const right_link = json.list[right_index][1];
+    
+        addNewWorldcup(left_link, left_name, right_link, right_name, title, description);
+    });
+});
